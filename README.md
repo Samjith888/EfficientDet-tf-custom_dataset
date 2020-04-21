@@ -88,6 +88,15 @@ Note : There are also several scripts available to convert from kitti to tfrecor
  Convert kitti to PascalVOC datastructure for train and validation seperately if needed. Hence the `dataset/create_pascal_tfrecord.py` script to generate tfrecords from PascalVOC whihc is mentioned below.
   
 - PascalVOC to tfrecord  
+Open the create_tfrecord.py file in the dataset folder and modify the line 56 with custom class. Modify: pascal_label_map_dict = {'back_ground': 0, 'classname': 1}. 
+
+create `train.txt` file by using following command 
+```bash
+cd VOCdevkit/VOC2012 && ls -1 JPEGImages | cut -d. -f1 > train.txt && cd -
+$ head VOCdevkit/VOC2012/ImageSets/Main/train.txt
+ ```
+The above command will generate a `train.txt` file under `VOCdevkit/VOC2012/ImageSets/Main` directory.
+
 ```bash
 PYTHONPATH=".:$PYTHONPATH"  python dataset/create_pascal_tfrecord.py  \
     --data_dir=VOCdevkit --year=VOC2012  --output_path=tfrecord/pascal
@@ -120,4 +129,7 @@ python main.py --mode=train_and_eval \
 ```
 
 
-![1]()
+![1](https://user-images.githubusercontent.com/39676803/79858451-115cbe80-83ed-11ea-8155-3396e2283f43.png)
+
+
+Note : For more features and information , please visit the official [EfficientDet-tf github repo](https://github.com/google/automl/tree/master/efficientdet)
