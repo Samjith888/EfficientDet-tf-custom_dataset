@@ -141,4 +141,9 @@ python main.py --mode=train_and_eval \
 ![2](https://user-images.githubusercontent.com/39676803/79864874-d1e79f80-83f7-11ea-941c-81c6a8ee69f1.png)
 
 
+## Common issues
+
+* TypeError: object of type <class 'numpy.float64'> cannot be safely interpreted as an integer.  
+solution : `pip install numpy==1.17.0` (downgrade numpy from 1.18 to 1.17)
+
 Note : For more features and information , please visit the official [EfficientDet-tf github repo](https://github.com/google/automl/tree/master/efficientdet)
