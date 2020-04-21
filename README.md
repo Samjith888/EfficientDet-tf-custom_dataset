@@ -42,14 +42,19 @@ Will update on this soon
 
 #### Preprocess
 
-The custom dataset have to be converted into tfrecords which will be acceptable by the tensorflow training pipeline.
+Tfrecords have to be generated from custom dataset, which will be acceptable by the tensorflow training pipeline.
+Lets make a folder `tfrecord` 
 
+```bash
+cd EfficientDet-tf-custom_dataset
+mkdir tfrecord
+```
 - Kitti dataset to tfrecord 
 
 1) Kitti dataset can be converted into tfrecord directly by using the following command( script is from [tensorflow repo](https://github.com/tensorflow/models/blob/master/research/object_detection/dataset_tools/create_kitti_tf_record.py))
 
 ```bash
- python dataset_convert/create_kitti2tfrecord.py \
+ python kiti_convert/create_kitti2tfrecord.py \
         --data_dir='path of kitti_dataset folder'
         --output_path='path to store tfrecords'
         --label_map_path = 'path to label_map.pbtxt'
@@ -78,5 +83,41 @@ Note : There are also several scripts available to convert from kitti to tfrecor
 
 2) Kitti cab be converted into Pascal voc by using the following script 
 ```bash
- python dataset_convert/kitti2voc.py 
+ python kitti_convert/kitti2voc.py -ipi 'path to images' -ipl 'path to kitti labels'
  ```   
+ Convert kitti to PascalVOC datastructure for train and validation seperately if needed. Hence the `dataset/create_pascal_tfrecord.py` script to generate tfrecords from PascalVOC whihc is mentioned below.
+  
+- PascalVOC to tfrecord  
+```bash
+PYTHONPATH=".:$PYTHONPATH"  python dataset/create_pascal_tfrecord.py  \
+    --data_dir=VOCdevkit --year=VOC2012  --output_path=tfrecord/pascal
+ ```
+ Note : The tf record can be alos genreated for train and validation if needed.
+
+#### Training
+
+* Download backbone using follwoing command 
+
+```bash
+wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/ckptsaug/efficientnet-b0.tar.gz
+tar xf efficientnet-b0.tar.gz 
+```
+* Start the training using following command 
+
+```bash
+python main.py --mode=train_and_eval \
+    --training_file_pattern=tfrecord/pascal*.tfrecord \
+    --validation_file_pattern=tfrecord/pascal*.tfrecord \
+    --val_json_file=tfrecord/json_pascal.json \
+    --model_name=efficientdet-d0 \
+    --model_dir=/tmp/efficientdet-d0-scratch  \
+    --backbone_ckpt=efficientnet-b0  \
+    --train_batch_size=8 \
+    --eval_batch_size=8 --eval_samples=512 \
+    --num_examples_per_epoch=5717 --num_epochs=1  \
+    --hparams="use_bfloat16=false,num_classes=20,moving_average_decay=0" \
+    --use_tpu=False
+```
+
+
+![1]()
