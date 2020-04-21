@@ -131,6 +131,7 @@ python main.py --mode=train_and_eval \
 
 
 ![1](https://user-images.githubusercontent.com/39676803/79858451-115cbe80-83ed-11ea-8155-3396e2283f43.png)
+![2](https://user-images.githubusercontent.com/39676803/79864874-d1e79f80-83f7-11ea-941c-81c6a8ee69f1.png)
 
 
 Note : For more features and information , please visit the official [EfficientDet-tf github repo](https://github.com/google/automl/tree/master/efficientdet)
