@@ -49,7 +49,7 @@ Lets make a folder `tfrecord`
 cd EfficientDet-tf-custom_dataset
 mkdir tfrecord
 ```
-###### Kitti dataset to tfrecord 
+**a) Kitti dataset to tfrecord** 
 
 1) Kitti dataset can be converted into tfrecord directly by using the following command( script is from [tensorflow repo](https://github.com/tensorflow/models/blob/master/research/object_detection/dataset_tools/create_kitti_tf_record.py))
 
@@ -87,7 +87,7 @@ Note : There are also several scripts available to convert from kitti to tfrecor
  ```   
  Convert kitti to PascalVOC datastructure for train and validation seperately if needed. Hence the `dataset/create_pascal_tfrecord.py` script to generate tfrecords from PascalVOC whihc is mentioned below.
   
-###### PascalVOC to tfrecord  
+**b) PascalVOC to tfrecord** 
 
 Open the create_tfrecord.py file in the dataset folder and modify the line 56 with custom class. Modify: pascal_label_map_dict = {'back_ground': 0, 'classname': 1}. 
 
