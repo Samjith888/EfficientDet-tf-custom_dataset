@@ -14,7 +14,12 @@ Thank you for the great work.
 
 
 ## Prerequisites
-1) Tensorflow 
+
+1) lxml (pip install lxml)
+2) Cython 
+3)matplotlib
+4) pycocotools (pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI)
+5) Tensorflow 
 
 recommedned : create a conda environment with tensorflow 2 by using following command 
 
