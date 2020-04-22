@@ -14,10 +14,9 @@ Thank you for the great work.
 5. [Common_issues](#Issues)
 
 ## Prerequisites
-
-1) lxml (pip install lxml)
-2) Cython 
-3)matplotlib
+1) lxml
+2) Cython
+3) matplotlib
 4) pycocotools (pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI)
 5) Tensorflow 
 
