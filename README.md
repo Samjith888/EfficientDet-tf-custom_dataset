@@ -102,6 +102,8 @@ head VOCdevkit/VOC2012/train.txt
  ```
 The above command will generate a `train.txt` file under `VOCdevkit/VOC2012` , move it into `ImageSets/Main` directory.
 
+Run the following command and generate the tfrecords from PascalVOC.
+
 ```bash
 PYTHONPATH=".:$PYTHONPATH"  python dataset/create_pascal_tfrecord.py  \
     --data_dir=VOCdevkit --year=VOC2012  --output_path=tfrecord/pascal
