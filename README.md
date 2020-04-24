@@ -149,7 +149,7 @@ solution : `pip install numpy==1.17.0` (downgrade numpy from 1.18 to 1.17)
   [[{{node parser/Assert/Assert}}]]
   [[IteratorGetNext]]
   
-  solution : 
+  solution : change [MAX_NUM_INSTANCES](https://github.com/Samjith888/EfficientDet-tf-custom_dataset/blob/master/dataloader.py#L27) with maximum number of instances in image of the custom dataset
   
 
 Note : For more features and information , please visit the official [EfficientDet-tf github repo](https://github.com/google/automl/tree/master/efficientdet)
