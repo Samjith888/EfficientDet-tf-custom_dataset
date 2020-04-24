@@ -145,4 +145,11 @@ python main.py --mode=train_and_eval \
 * TypeError: object of type <class 'numpy.float64'> cannot be safely interpreted as an integer.  
 solution : `pip install numpy==1.17.0` (downgrade numpy from 1.18 to 1.17)
 
+* tensorflow.python.framework.errors_impl.InvalidArgumentError: assertion failed
+  [[{{node parser/Assert/Assert}}]]
+  [[IteratorGetNext]]
+  
+  solution : 
+  
+
 Note : For more features and information , please visit the official [EfficientDet-tf github repo](https://github.com/google/automl/tree/master/efficientdet)
