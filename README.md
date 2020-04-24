@@ -98,9 +98,9 @@ Open the create_tfrecord.py file in the dataset folder and modify the line 56 wi
 create `train.txt` file by using following command 
 ```bash
 cd VOCdevkit/VOC2012 && ls -1 JPEGImages | cut -d. -f1 > train.txt && cd -
-$ head VOCdevkit/VOC2012/ImageSets/Main/train.txt
+head VOCdevkit/VOC2012/train.txt
  ```
-The above command will generate a `train.txt` file under `VOCdevkit/VOC2012/ImageSets/Main` directory.
+The above command will generate a `train.txt` file under `VOCdevkit/VOC2012` , move it into `ImageSets/Main` directory.
 
 ```bash
 PYTHONPATH=".:$PYTHONPATH"  python dataset/create_pascal_tfrecord.py  \
