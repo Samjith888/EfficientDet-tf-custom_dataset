@@ -53,8 +53,7 @@ FLAGS = flags.FLAGS
 SETS = ['train', 'val', 'trainval', 'test']
 YEARS = ['VOC2007', 'VOC2012', 'merged']
 
-pascal_label_map_dict = {
-    'background': 0, 'classname': 1}
+pascal_label_map_dict = {'classname': 1}
 
 
 GLOBAL_IMG_ID = 0  # global image id.
