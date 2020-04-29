@@ -29,7 +29,7 @@ Thank you for the great work.
   Note : Make sure that you are in the above conda environment while processing every operations in this. 
 
 ## Inference 
-- Open the inference.py file and modify the [line]() with your custom class and mapping id same as mentioned while generating tfrecords.
+- Open the inference.py file and modify the [line](https://github.com/Samjith888/EfficientDet-tf-custom_dataset/blob/25bba2341d977ba18f7de70daabc771413de7413/inference.py#L39) with your custom class and mapping id same as mentioned while generating tfrecords.
 - Following command is used for inference.
 
   ```bash
@@ -93,7 +93,7 @@ Will update on this soon
   
 **b) PascalVOC to tfrecord** 
 
-- Open the create_tfrecord.py file in the dataset folder and modify the line 56 with custom class. Modify: pascal_label_map_dict = { 'classname': 1}. 
+- Open the create_tfrecord.py file in the dataset folder and modify [this line](https://github.com/Samjith888/EfficientDet-tf-custom_dataset/blob/25bba2341d977ba18f7de70daabc771413de7413/dataset/create_pascal_tfrecord.py#L56) with custom classes.
 
 - create `train.txt` file by using following command 
 
